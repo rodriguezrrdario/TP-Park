@@ -11,10 +11,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Attraction;
 import services.AttractionService;
 
+
 @WebServlet("/attractions/edit.do")
 public class EditAttractionServlet extends HttpServlet {
 	private static final long serialVersionUID = -8284784612223209058L;
-	
 	private AttractionService attractionService;
 
 	@Override
@@ -47,7 +47,7 @@ public class EditAttractionServlet extends HttpServlet {
 		Attraction attraction = attractionService.update(id, name, cost, duration, capacity);
 
 		if (attraction.isValid()) {
-			resp.sendRedirect("/turismo/attractions/index.do");
+			resp.sendRedirect("/TP-Park/attractions/index.do");
 		} else {
 			req.setAttribute("attraction", attraction);
 

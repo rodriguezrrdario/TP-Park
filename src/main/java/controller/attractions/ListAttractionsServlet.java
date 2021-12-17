@@ -13,10 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Attraction;
 import services.AttractionService;
 
+
 @WebServlet("/attractions/index.do")
 public class ListAttractionsServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1898580225995837373L;
-	
 	private AttractionService attractionService;
 
 	@Override

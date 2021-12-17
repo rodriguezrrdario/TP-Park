@@ -40,7 +40,7 @@
 			<ul class="navbar-nav">				
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" 
-					 href="#" id="navbarDropdown" role="button" 
+					 href="#" id="navbarDropdown" role="button"
 					 data-bs-toggle="dropdown" aria-expanded="false">
 						<c:if test="${user.isAdmin()}">
 							<c:out value="Administrador "></c:out>							
@@ -53,16 +53,17 @@
 					<c:if test="${!user.isNull()}">
 						<ul class="dropdown-menu dropdown-menu-end"
 							aria-labelledby="navbarDropdown">
+							<!-- style="background-color: black;" -->							
 						
 							<li><a class="dropdown-item disabled" style="color: black;">
-							<i title="monedas" style="color: gold;" class="bi bi-coin"></i> 
-							<c:out value="Oro: ${user.coins}"></c:out>
+							<i title="monedas" style="color: gold;" class="bi bi-cash-coin"></i> 
+							<c:out value="${user.coins}"></c:out>
 								</a>
 							</li>
 							
 							<li><a class="dropdown-item disabled" style="color: black;">
-									<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> 
-									<c:out value="Tiempo: ${user.time}"></c:out>
+									<i title="tiempo" style="color: green;" class="bi bi-hourglass-split"></i> 
+									<c:out value="${user.time}"></c:out>
 								</a>
 							</li>
 													

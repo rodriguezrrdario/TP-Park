@@ -15,7 +15,7 @@ import services.LoginService;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = -46688658298314031L;	
+	private static final long serialVersionUID = -46688658298314031L;
 	private LoginService loginService;
 
 	@Override
@@ -45,8 +45,7 @@ public class LoginServlet extends HttpServlet {
 }
 
 
-//cambiar el metodo que chequea la clave, ya que nunca va en texto plano
-//hacer una tabla hash 
+//la clave nunca va en texto plano (se hace una tabla hash) 
 		//if(!username.isBlank() && password.equals("123")) {
 //a la sesion solo se le setean atributos			
 		//req.getSession().setAttribute("username", username);

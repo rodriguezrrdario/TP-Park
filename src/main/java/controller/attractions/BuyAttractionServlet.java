@@ -15,7 +15,7 @@ import services.BuyAttractionService;
 
 @WebServlet("/attractions/buy.do")
 public class BuyAttractionServlet extends HttpServlet {
-	private static final long serialVersionUID = -7603795221117906146L;
+	private static final long serialVersionUID = -7603795221117906146L;	
 	private BuyAttractionService buyAttractionService;
 
 	@Override

@@ -13,9 +13,7 @@ import services.UserService;
 
 @WebServlet("/users/create.do")
 public class CreateUserServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 6770857886710948270L;
-	
 	private UserService userService;
 
 	@Override

@@ -17,7 +17,8 @@ public class LoggedFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
+		
+		//Sirve para que exista un usuario logueado, sino me manda al login.jsp
 		User user = (User) ((HttpServletRequest) request).getSession().getAttribute("user");
 		if (user != null) {
 			chain.doFilter(request, response);
@@ -27,26 +28,8 @@ public class LoggedFilter implements Filter {
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		}
-
 	}
-
 }
+//	String user = (String) ((HttpServletRequest) req).getSession().getAttribute("user");
 
-//@WebFilter(urlPatterns = "*.do")
-//public class LoggedFilter implements Filter {
-//
-//	//Sirve para que exista un usuario logueado, sino me manda al login.jsp
-//	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-//			throws IOException, ServletException {
-//		String user = (String) ((HttpServletRequest) req).getSession().getAttribute("user");
-//		if (user != null) {
-//			chain.doFilter(req, resp);
-//		} else {
-//			req.setAttribute("flash", "Por favor, inicie sesión");
-//			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/login.jsp");
-//			dispatcher.forward(req, resp);
-//		}
-//	}
-//}
-    
  

@@ -12,16 +12,9 @@
 
 	<main class="container">
 		
-		<!-- AGREGAR BOTON "Atraccion nueva"
-			<form action="login" method="post">
-				<div class="d-grid gap-2">
-					<button type="submit" class="btn btn-lg btn-success">Cerrar Sesion</button>
-				</div>
-			</form> -->
+			
 		
-		
-		
-		<%-- <c:if test="${flash != null}">
+		<c:if test="${flash != null}">
 			<div class="alert alert-danger">
 				<p>
 					<c:out value="${flash}" />
@@ -34,36 +27,35 @@
 					</c:if>
 				</p>
 			</div>
-		</c:if> --%>
+		</c:if> 
 
 		<div class="bg-light p-4 mb-3 rounded">
 			<h1>Atracciones de la Tierra Media</h1>
 		</div>
 
-		<%-- <c:if test="${user.isAdmin()}">
+		<c:if test="${user.isAdmin()}">
 			<div class="mb-3">
-				<a href="/turismo/attractions/create.do" class="btn btn-primary"
+				<a href="/TP-Park/attractions/create.do" class="btn btn-primary"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
 				</a>
 			</div>
-		</c:if> --%>
+		</c:if> 		
+		
 		<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
-					<th>Atracci&oacute;n</th>
+					<th>Atracción</th>
 					<th>Costo</th>
-					<th>Duraci&oacute;n</th>
+					<th>Duración</th>
 					<th>Cupo</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<%-- <c:forEach items="${attractions}" var="attraction">
+				<c:forEach items="${attractions}" var="attraction">
 					<tr>
 						<td><strong><c:out value="${attraction.name}"></c:out></strong>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
-								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
+							<p>Agregar acá la descripción de las atracciones.</p></td>
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.duration}"></c:out></td>
 						<td><c:out value="${attraction.capacity}"></c:out></td>
@@ -72,6 +64,7 @@
 								<a href="/TP-Park/attractions/edit.do?id=${attraction.id}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
+									
 								<a href="/TP-Park/attractions/delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
@@ -88,7 +81,7 @@
 								</c:otherwise>
 							</c:choose></td> 
 					</tr>
-				</c:forEach> --%>
+				</c:forEach> 
 			</tbody>
 		</table>
 
