@@ -49,17 +49,17 @@
 					
 					<c:if test="${!user.isNull()}">
 						<ul class="dropdown-menu dropdown-menu-end"
-							aria-labelledby="navbarDropdown">
-							<!-- style="background-color: black;" -->							
+							aria-labelledby="navbarDropdown" 
+							style="background-color: black"> 							
 						
-							<li><a class="dropdown-item disabled" style="color: black;">
+							<li><a class="dropdown-item disabled" style="color: gold;">
 							<i title="monedas" style="color: gold;" class="bi bi-cash-coin"></i> 
 							<c:out value="${user.coins}"></c:out>
 								</a>
 							</li>
 							
-							<li><a class="dropdown-item disabled" style="color: black;">
-									<i title="tiempo" style="color: green;" class="bi bi-hourglass-split"></i> 
+							<li><a class="dropdown-item disabled" style="color: silver;">
+									<i title="tiempo" style="color: silver;" class="bi bi-hourglass-split"></i> 
 									<c:out value="${user.time}"></c:out>
 								</a>
 							</li>

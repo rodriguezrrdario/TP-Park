@@ -120,6 +120,12 @@ public class User {
 		if (time < 0) {
 			errors.put("time", "No debe ser negativo");
 		}
+		if (atraccionPreferida <= 0) {
+			errors.put("tipo", "Debe ser positivo.");
+		}
+		if (atraccionPreferida >=4) {
+			errors.put("tipo", "Solo existen 3 tipos de atracciones.");
+		}
 	}
 	
 	public Map<String, String> getErrors() {

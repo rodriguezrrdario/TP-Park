@@ -1,10 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 					
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-	<div class="container">		
-	
-		
-		
+	<div class="container">				
 		
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"

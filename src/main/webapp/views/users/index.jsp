@@ -60,7 +60,7 @@
 									Admin
 								</c:when>
 								<c:otherwise>
-									Normal
+									User
 								</c:otherwise>
 							</c:choose>						
 						</td>
@@ -68,6 +68,7 @@
 								<a href="/TP-Park/users/edit.do?id=${tmp_user.id}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
+									
 								<a href="/TP-Park/users/delete.do?id=${tmp_user.id}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
