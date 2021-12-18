@@ -2,7 +2,10 @@ package services;
 
 import java.util.List;
 
+import model.Attraction;
 import model.User;
+import persistence.AttractionDAO;
+import persistence.UserDAO;
 import persistence.commons.DAOFactory;
 
 public class UserService {
@@ -21,5 +24,36 @@ public class UserService {
 		}
 
 		return user;
+	}
+
+	public User find(Integer id) {
+		return DAOFactory.getUserDAO().find(id);
+	}
+
+	public User update(Integer id, String username, String password, Integer coins, Double time,
+			Integer atraccionPreferida) {
+		
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		User user = userDAO.find(id);
+		
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setCoins(coins);
+		user.setTime(time);
+		user.setAtraccionPreferida(atraccionPreferida);
+		
+		if (user.isValid()) {
+			userDAO.update(user);
+			// XXX: si no devuelve "1", es que hubo más errores
+		}
+
+		return user;	
+	}
+
+	public void delete(Integer id) {
+		User user = new User(id, null, null, null, null, null, null);
+
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		userDAO.delete(user);
 	}
 }

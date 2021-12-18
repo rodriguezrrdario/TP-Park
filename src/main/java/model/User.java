@@ -131,6 +131,11 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", admin=" + admin + "]";
 	}
 
+	public void setAtraccionPreferida(Integer atraccionPreferida) {
+		this.atraccionPreferida = atraccionPreferida;
+		
+	}
+
 	
 
 }
