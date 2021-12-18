@@ -36,8 +36,9 @@ public class CreateUserServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		Integer coins = Integer.parseInt(req.getParameter("coins"));
 		Double time = Double.parseDouble(req.getParameter("time"));
+		Integer atraccionPreferida = Integer.parseInt(req.getParameter("atraccionPreferida"));
 
-		User tmp_user = userService.create(username, password, coins, time);
+		User tmp_user = userService.create(username, password, coins, time, atraccionPreferida);
 		
 		if (tmp_user.isValid()) {
 			resp.sendRedirect("/TP-Park/users/index.do");

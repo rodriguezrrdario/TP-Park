@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int insert(User user) {
 		try {
-			String sql = "INSERT INTO usuarios (nombreUsuario, password, presupuesto, tiempo) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO usuarios (nombreUsuario, password, presupuesto, tiempo, admin, idTipoAtraccion) VALUES (?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -25,6 +25,9 @@ public class UserDAOImpl implements UserDAO {
 			statement.setString(2, user.getPassword());
 			statement.setInt(3, user.getCoins());
 			statement.setDouble(4, user.getTime());
+			int isAdmin = user.getAdmin() ? 1 : 0;
+			statement.setInt(5, isAdmin);
+			statement.setInt(6, user.getAtraccionPreferida());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -142,7 +145,7 @@ public class UserDAOImpl implements UserDAO {
 
 	private User toUser(ResultSet userRegister) throws SQLException {
 		return new User(userRegister.getInt(1), userRegister.getString(2), userRegister.getString(3),
-				userRegister.getInt(5), userRegister.getDouble(6), userRegister.getBoolean(4));
+				userRegister.getInt(5), userRegister.getDouble(6), userRegister.getBoolean(4), userRegister.getInt(5));
 	}
 
 }

@@ -44,7 +44,7 @@
 					<th>Nombre</th>
 					<th>Monedas</th>
 					<th>Tiempo</th>
-					<th>Rol</th>
+					<th>Tipo de usuario</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>

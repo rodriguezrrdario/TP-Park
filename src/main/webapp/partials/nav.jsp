@@ -2,7 +2,10 @@
 					
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 	<div class="container">
-		<a class="navbar-brand" href="/TP-Park/welcome.jsp">Turismo en la Tierra Media</a>
+		
+		<!-- <img src="assets\img\ring.jpg" class="img-thumbnail"> -->
+		
+		<a class="navbar-brand" href="/TP-Park/index.jsp">Turismo en la Tierra Media</a>
 		
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -18,18 +21,12 @@
 					</a>
 				</li>				
 			</ul>
-			<ul class="navbar-nav me-auto mb-2 mb-md-0">
-				<li class="nav-item">
-					<a class="nav-link disabled" aria-current="page" 
-					   href="/TP-Park/attractions/index.do">Promociones
-					</a>
-				</li>				
-			</ul>
+			
 			<c:if test="${user.isAdmin()}">
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" 
-					   href="/TP-Park/attractions/usuarios.do">Usuarios
+					   href="/TP-Park/users/index.do">Usuarios
 					</a>
 				</li>				
 			</ul>										
@@ -75,6 +72,7 @@
 							</li>
 						</ul>						
 					</c:if>
+							
 												
 					<%-- <c:if test="${user.isNull()}">
 						<li><a href="/TP-Park/logout" class="dropdown-item" 
@@ -86,3 +84,4 @@
 		</div>
 	</div>
 </nav>
+

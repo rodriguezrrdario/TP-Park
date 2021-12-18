@@ -11,8 +11,8 @@ public class UserService {
 		return DAOFactory.getUserDAO().findAll();
 	}
 
-	public User create(String username, String password, Integer coins, Double time) {
-		User user = new User(-1, username, password, coins, time, false);
+	public User create(String username, String password, Integer coins, Double time, Integer atraccionPreferida) {
+		User user = new User(-1, username, password, coins, time, false, atraccionPreferida);
 		user.setPassword(password);
 
 		if (user.isValid()) {

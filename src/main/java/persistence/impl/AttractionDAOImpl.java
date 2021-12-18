@@ -39,7 +39,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
-			
+
 			ResultSet resultados = statement.executeQuery();
 
 			Attraction attraction = null;
@@ -52,16 +52,17 @@ public class AttractionDAOImpl implements AttractionDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	private Attraction toAttraction(ResultSet attractionRegister) throws SQLException {
 		return new Attraction(attractionRegister.getInt(1), attractionRegister.getString(2),
-				attractionRegister.getInt(3), attractionRegister.getDouble(4), attractionRegister.getInt(5));
+				attractionRegister.getInt(3), attractionRegister.getDouble(4), attractionRegister.getInt(5),
+				attractionRegister.getInt(6));
 	}
 
 	@Override
 	public int insert(Attraction attraction) {
 		try {
-			String sql = "INSERT INTO atracciones (nombreAtraccion, tiempo, costo, cupo) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO atracciones (nombreAtraccion, tiempo, costo, cupo, idTipoAtraccion) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -70,6 +71,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 			statement.setDouble(i++, attraction.getCost());
 			statement.setDouble(i++, attraction.getDuration());
 			statement.setInt(i++, attraction.getCapacity());
+			statement.setInt(i++, attraction.getTipo());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -81,7 +83,8 @@ public class AttractionDAOImpl implements AttractionDAO {
 	@Override
 	public int update(Attraction attraction) {
 		try {
-			String sql = "UPDATE atracciones SET nombreAtraccion = ?, tiempo = ?, costo = ?, cupo = ? WHERE idAtraccion = ?";
+			String sql = "UPDATE atracciones SET nombreAtraccion = ?, " + "tiempo = ?, costo = ?, "
+					+ "cupo = ?, idTipoAtraccion = ? " + "WHERE idAtraccion = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -91,6 +94,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 			statement.setDouble(i++, attraction.getDuration());
 			statement.setInt(i++, attraction.getCapacity());
 			statement.setInt(i++, attraction.getId());
+			statement.setInt(i++, attraction.getTipo());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -131,7 +135,5 @@ public class AttractionDAOImpl implements AttractionDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
-
 
 }

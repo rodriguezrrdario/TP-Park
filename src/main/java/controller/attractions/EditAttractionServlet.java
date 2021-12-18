@@ -43,8 +43,9 @@ public class EditAttractionServlet extends HttpServlet {
 		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
 		Double duration = Double.parseDouble(req.getParameter("duration"));
 		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
+		Integer tipo = Integer.parseInt(req.getParameter("tipo"));
 
-		Attraction attraction = attractionService.update(id, name, cost, duration, capacity);
+		Attraction attraction = attractionService.update(id, name, cost, duration, capacity, tipo);
 
 		if (attraction.isValid()) {
 			resp.sendRedirect("/TP-Park/attractions/index.do");

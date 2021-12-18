@@ -5,6 +5,17 @@
 		type="text" class="form-control" id="name" name="username"
 		required value="${tmp_user.username}">
 </div>
+
+<div class="mb-3">
+	<label for="password"
+		class='col-form-label ${tmp_user.errors.get("password") != null ? "is-invalid" : "" }'>Contraseña:</label>
+	<input class="form-control" type="password" id="password" name="password"
+		required value="${tmp_user.password}"></input>
+	<div class="invalid-feedback">
+		<c:out value='${tmp_user.errors.get("password")}'></c:out>
+	</div>
+</div>
+
 <div class="mb-3">
 	<label for="coins"
 		class='col-form-label ${tmp_user.errors.get("coins") != null ? "is-invalid" : "" }'>Monedas:</label>
@@ -26,12 +37,12 @@
 </div>
 
 <div class="mb-3">
-	<label for="password"
-		class='col-form-label ${tmp_user.errors.get("password") != null ? "is-invalid" : "" }'>Contraseña:</label>
-	<input class="form-control" type="password" id="password" name="password"
-		required value="${tmp_user.password}"></input>
+	<label for="atraccionPreferida"
+		class='col-form-label ${tmp_user.errors.get("atraccionPreferida") != null ? "is-invalid" : "" }'>Atraccion Preferida:</label>
+	<input class="form-control" type="number" id="atraccionPreferida" name="atraccionPreferida"
+		required value="${tmp_user.atraccionPreferida}"></input>
 	<div class="invalid-feedback">
-		<c:out value='${tmp_user.errors.get("password")}'></c:out>
+		<c:out value='${tmp_user.errors.get("atraccionPreferida")}'></c:out>
 	</div>
 </div>
 

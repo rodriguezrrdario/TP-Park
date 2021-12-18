@@ -10,19 +10,21 @@ public class Attraction {
 	private Integer cost;
 	private Double duration;
 	private Integer capacity;
+	private Integer tipo;
 	
 	private Map<String, String> errors;
 	
-	public Attraction(String name, Integer cost, Double duration, Integer capacity) {
+	public Attraction(String name, Integer cost, Double duration, Integer capacity, Integer tipo) {
 		super();
 		this.name = name;
 		this.cost = cost;
 		this.duration = duration;
 		this.capacity = capacity;
+		this.tipo = tipo;
 	}
 	
-	public Attraction(Integer id, String name, Integer cost, Double duration, Integer capacity) {
-		this(name, cost, duration, capacity);
+	public Attraction(Integer id, String name, Integer cost, Double duration, Integer capacity, Integer tipo) {
+		this(name, cost, duration, capacity, tipo);
 		this.id = id;
 	}
 	
@@ -45,6 +47,12 @@ public class Attraction {
 		}
 		if (capacity <= 0) {
 			errors.put("capacity", "Debe ser positivo");
+		}
+		if (tipo <= 0) {
+			errors.put("tipo", "Debe ser positivo.");
+		}
+		if (tipo >=4) {
+			errors.put("tipo", "Solo existen 3 tipos de atracciones.");
 		}
 	}
 	
@@ -91,11 +99,23 @@ public class Attraction {
 	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
+	
+	public int getTipo() {		
+		return tipo;
+	}
+	
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public String toString() {
-		return "Attraction [id=" + id + ", name=" + name + ", cost=" + cost + ", duration=" + duration + ", capacity="
-				+ capacity + "]";
+		return "Attraction [id=" + id +
+				", name=" + name +
+				", cost=" + cost + 
+				", duration=" + duration +
+				", capacity=" + capacity +
+				", tipo=" + tipo + "]";
 	}
 
 	public boolean canHost(int i) {
@@ -105,7 +125,6 @@ public class Attraction {
 	public void host(int i) {
 		this.capacity -= i;
 	}
-
 	
 	
 }

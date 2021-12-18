@@ -35,7 +35,7 @@
 
 		<c:if test="${user.isAdmin()}">
 			<div class="mb-3">
-				<a href="/TP-Park/attractions/create.do" class="btn btn-primary"
+				<a href="/TP-Park/attractions/create.do" class="btn btn-success"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
 				</a>
 			</div>
@@ -48,6 +48,7 @@
 					<th>Costo</th>
 					<th>Duración</th>
 					<th>Cupo</th>
+					<!-- <th>Tipo</th> -->
 					<th>Acciones</th>
 				</tr>
 			</thead>
@@ -59,10 +60,11 @@
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.duration}"></c:out></td>
 						<td><c:out value="${attraction.capacity}"></c:out></td>
-
+						<%-- <td><c:out value="${attraction.tipo}"></c:out></td> --%> 
+						
 						<td><c:if test="${user.admin}">
 								<a href="/TP-Park/attractions/edit.do?id=${attraction.id}"
-									class="btn btn-light rounded-0" role="button"><i
+									class="btn btn-warning rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
 									
 								<a href="/TP-Park/attractions/delete.do?id=${attraction.id}"

@@ -16,7 +16,7 @@
 	</div>
 	<div class="mb-3">
 		<label for="duration"
-			class='col-form-label ${attraction.errors.get("duration") != null ? "is-invalid" : "" }'>Duration:</label>
+			class='col-form-label ${attraction.errors.get("duration") != null ? "is-invalid" : "" }'>Tiempo requerido:</label>
 		<input class="form-control" type="number" id="duration" name="duration"
 			required value="${attraction.duration}"></input>
 		<div class="invalid-feedback">
@@ -25,13 +25,24 @@
 	</div>
 	<div class="mb-3">
 		<label for="capacity"
-			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>Capacity:</label>
+			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>Cupo:</label>
 		<input class="form-control" type="number" id="capacity" name="capacity"
 			required value="${attraction.capacity}"></input>
 		<div class="invalid-feedback">
 			<c:out value='${attraction.errors.get("capacity")}'></c:out>
 		</div>
 	</div>
+	<div class="mb-3">
+		<label for="tipo"
+			class='col-form-label ${attraction.errors.get("tipo") != null ? "is-invalid" : "" }'>Tipo de Atraccción:</label>
+		<input class="form-control" type="number" id="tipo" name="tipo"
+			required value="${attraction.tipo}"></input>    <!-- ok -->
+		<div class="invalid-feedback">
+			<c:out value='${attraction.errors.get("tipo")}'></c:out>    <!-- ok -->
+		</div>
+	</div>
+	
+	<!-- agregar tipo -->	
 </div>
 <div>
 	<button type="submit" class="btn btn-primary">Guardar</button>

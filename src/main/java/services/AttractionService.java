@@ -12,9 +12,9 @@ public class AttractionService {
 		return DAOFactory.getAttractionDAO().findAll();
 	}
 
-	public Attraction create(String name, Integer cost, Double duration, Integer capacity) {
+	public Attraction create(String name, Integer cost, Double duration, Integer capacity, Integer tipo) {
 
-		Attraction attraction = new Attraction(name, cost, duration, capacity);
+		Attraction attraction = new Attraction(name, cost, duration, capacity, tipo);
 
 		if (attraction.isValid()) {
 			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -25,7 +25,7 @@ public class AttractionService {
 		return attraction;
 	}
 
-	public Attraction update(Integer id, String name, Integer cost, Double duration, Integer capacity) {
+	public Attraction update(Integer id, String name, Integer cost, Double duration, Integer capacity, Integer tipo) {
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		Attraction attraction = attractionDAO.find(id);
@@ -34,7 +34,8 @@ public class AttractionService {
 		attraction.setCost(cost);
 		attraction.setDuration(duration);
 		attraction.setCapacity(capacity);
-
+		attraction.setTipo(tipo);
+		
 		if (attraction.isValid()) {
 			attractionDAO.update(attraction);
 			// XXX: si no devuelve "1", es que hubo más errores
@@ -43,9 +44,9 @@ public class AttractionService {
 		return attraction;
 	}
 
-	@SuppressWarnings("null")
+//	@SuppressWarnings("null")
 	public void delete(Integer id) {
-		Attraction attraction = new Attraction(id, null, null, null, null);
+		Attraction attraction = new Attraction(id, null, null, null, null, null);
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		attractionDAO.delete(attraction);
